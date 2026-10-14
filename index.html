@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kbang Gia Lai - Huyền Thoại Đại Ngàn & Tuyệt Tác Thiên Nhiên</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldDeep: '#064e3b',
+                        emeraldLight: '#10b981',
+                        forestAccent: '#022c22',
+                        ochreGold: '#d97706',
+                        ochreLight: '#fef3c7',
+                        earthRed: '#991b1b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(2, 44, 34, 0.75), rgba(6, 78, 59, 0.65)), url('https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .pattern-overlay {
+            background-image: radial-gradient(rgba(217, 119, 6, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .glass-nav {
+            background: rgba(6, 78, 59, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-ochreGold selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav text-white transition-all duration-300 shadow-md" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-ochreGold flex items-center justify-center font-bold text-xl text-white shadow-lg">
+                        <i class="fa-solid font-tree text-white"></i> K
+                    </div>
+                    <div>
+                        <a href="#hero" class="text-2xl font-extrabold tracking-tight text-amber-400">KBANG <span class="text-white text-base font-normal">Gia Lai</span></a>
+                        <p class="text-[10px] text-emerald-200 uppercase tracking-widest leading-none">Huyền thoại đại ngàn</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-amber-300 transition-colors py-2"><i class="fa-solid fa-compass mr-1 text-xs"></i> Giới thiệu</a>
+                    <a href="#attractions" class="hover:text-amber-300 transition-colors py-2"><i class="fa-solid fa-mountain-sun mr-1 text-xs"></i> Danh Thắng</a>
+                    <a href="#cuisine" class="hover:text-amber-300 transition-colors py-2"><i class="fa-solid fa-utensils mr-1 text-xs"></i> Đặc Sản</a>
+                    <a href="#culture" class="hover:text-amber-300 transition-colors py-2"><i class="fa-solid fa-drum mr-1 text-xs"></i> Văn Hóa</a>
+                    <a href="#itinerary" class="hover:text-amber-300 transition-colors py-2"><i class="fa-solid fa-map-location-dot mr-1 text-xs"></i> Lịch Trình</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#itinerary" class="bg-ochreGold hover:bg-amber-600 text-white px-5 py-2.5 rounded-full font-semibold shadow-lg transition duration-300 transform hover:-translate-y-0.5 inline-flex items-center space-x-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Khám Phá Ngay</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-amber-300 focus:outline-none p-2" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-emeraldDeep border-t border-emerald-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-100 hover:text-amber-300 border-b border-emerald-800/50"><i class="fa-solid fa-compass w-6"></i> Giới thiệu</a>
+            <a href="#attractions" class="block py-2 text-slate-100 hover:text-amber-300 border-b border-emerald-800/50"><i class="fa-solid fa-mountain-sun w-6"></i> Danh thắng du lịch</a>
+            <a href="#cuisine" class="block py-2 text-slate-100 hover:text-amber-300 border-b border-emerald-800/50"><i class="fa-solid fa-utensils w-6"></i> Đặc sản ẩm thực</a>
+            <a href="#culture" class="block py-2 text-slate-100 hover:text-amber-300 border-b border-emerald-800/50"><i class="fa-solid fa-drum w-6"></i> Văn hóa Tây Nguyên</a>
+            <a href="#itinerary" class="block py-2 text-slate-100 hover:text-amber-300"><i class="fa-solid fa-map-location-dot w-6"></i> Lịch trình & Bản đồ</a>
+        </div>
+    </nav>
+
+    <!-- Hero / Banner Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center hero-bg pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6 py-24">
+            <span class="inline-block bg-ochreGold/90 text-white text-xs sm:text-sm font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full mb-6 border border-amber-300/40 shadow-md">
+                <i class="fa-solid fa-location-dot mr-1"></i> Cổng Trời Kbang - Vùng Đất Huyền Thoại
+            </span>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight text-shadow mb-6">
+                Chạm Vào Đại Ngàn <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">Kbang Gia Lai</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-emerald-100 max-w-3xl mx-auto font-normal leading-relaxed mb-10 text-shadow">
+                Nơi hội tụ những ngọn thác hùng vĩ ẩn mình trong rừng nguyên sinh, di sản sinh thái ASEAN Kon Ka Kinh và âm vang cồng chiêng bất tận của vùng đất anh hùng.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#attractions" class="w-full sm:w-auto bg-ochreGold hover:bg-amber-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 text-center">
+                    <i class="fa-solid fa-compass mr-2"></i> Khám Phá Danh Thắng
+                </a>
+                <a href="#culture" class="w-full sm:w-auto bg-emerald-800/80 hover:bg-emerald-900/90 text-amber-200 font-semibold px-8 py-4 rounded-xl border border-amber-400/30 backdrop-blur-md transition duration-300 text-center">
+                    <i class="fa-solid fa-drum mr-2"></i> Văn Hóa Bản Địa
+                </a>
+            </div>
+
+            <!-- Key Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-8 border-t border-white/20 text-white">
+                <div class="p-3">
+                    <div class="text-3xl font-extrabold text-amber-400">K50</div>
+                    <div class="text-xs text-emerald-100 uppercase mt-1">Thác Hang Én Huyền Thoại</div>
+                </div>
+                <div class="p-3">
+                    <div class="text-3xl font-extrabold text-amber-400">40.000+ ha</div>
+                    <div class="text-xs text-emerald-100 uppercase mt-1">Rừng Quốc Gia Kon Ka Kinh</div>
+                </div>
+                <div class="p-3">
+                    <div class="text-3xl font-extrabold text-amber-400">Tây Sơn</div>
+                    <div class="text-xs text-emerald-100 uppercase mt-1">Di Tịch Thượng Đạo</div>
+                </div>
+                <div class="p-3">
+                    <div class="text-3xl font-extrabold text-amber-400">Bà Na</div>
+                    <div class="text-xs text-emerald-100 uppercase mt-1">Bản Sắc Văn Hóa Độc Đáo</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white/70 animate-bounce">
+            <a href="#about" aria-label="Cuộn xuống"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-emerald-50/50 relative pattern-overlay">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div>
+                    <span class="text-ochreGold font-bold text-sm tracking-widest uppercase">Vùng Đất Thiên Nhiên & Lịch Sử</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-emeraldDeep mt-2 mb-6">
+                        Giới Thiệu Tổng Quan Về Huyện Kbang
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Nằm ở phía Đông Bắc tỉnh Gia Lai, <strong>Huyện Kbang</strong> được mệnh danh là một trong những "trái tim xanh" của khu vực Tây Nguyên. Với khí hậu quanh năm mát mẻ, không khí trong lành, Kbang sở hữu hệ sinh thái rừng nguyên sinh bạt ngàn, hệ thống sông thác hùng vĩ cùng đa dạng sinh học bậc nhất Việt Nam.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Không chỉ có thiên nhiên hoang sơ, Kbang còn mang trong mình bề dày lịch sử hào hùng – là căn cứ địa cách mạng, quê hương của Anh hùng Núp nổi tiếng trong kháng chiến, và là cái nôi của Quần thể di tích lịch sử Tây Sơn Thượng Đạo.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="flex items-start space-x-3 p-4 bg-white rounded-xl shadow-sm border border-emerald-100">
+                            <div class="text-ochreGold text-2xl"><i class="fa-solid fa-cloud-sun font-bold"></i></div>
+                            <div>
+                                <h4 class="font-bold text-emeraldDeep text-sm">Khí Hậu Ôn Hòa</h4>
+                                <p class="text-xs text-slate-500 mt-1">Mát mẻ dễ chịu quanh năm, nhiệt độ trung bình 21-23°C</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 p-4 bg-white rounded-xl shadow-sm border border-emerald-100">
+                            <div class="text-ochreGold text-2xl"><i class="fa-solid fa-tree"></i></div>
+                            <div>
+                                <h4 class="font-bold text-emeraldDeep text-sm">Độ Hợp Rừng Cao</h4>
+                                <p class="text-xs text-slate-500 mt-1">Hơn 70% diện tích phủ xanh bởi rừng nguyên sinh cổ thụ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Graphic Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=600&q=80" alt="Rừng núi Kbang" class="rounded-2xl shadow-lg object-cover h-64 w-full transform hover:scale-105 transition duration-500">
+                        <div class="bg-emeraldDeep text-white p-6 rounded-2xl shadow-lg">
+                            <div class="text-3xl font-extrabold text-amber-400 mb-1">Cổng Trời</div>
+                            <p class="text-xs text-emerald-100">Nơi giao thoa mây ngàn và văn hóa truyền thống Bà Na đặc sắc.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="bg-ochreGold text-white p-6 rounded-2xl shadow-lg">
+                            <i class="fa-solid fa-campground text-3xl mb-2 text-amber-200"></i>
+                            <h4 class="font-bold text-lg">Du Lịch Sinh Thái</h4>
+                            <p class="text-xs text-amber-100 mt-1">Điểm đến lý tưởng cho trekking, cắm trại & khám phá mạo hiểm.</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" alt="Thác nước đại ngàn" class="rounded-2xl shadow-lg object-cover h-64 w-full transform hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions Section -->
+    <section id="attractions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-ochreGold font-bold text-sm tracking-widest uppercase">Điểm Đến Hấp Dẫn</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emeraldDeep mt-2">
+                    Danh Lam Thắng Cảnh & Địa Điểm Nổi Bật
+                </h2>
+                <p class="text-slate-600 mt-3">
+                    Từ những ngọn thác tuyệt đẹp ẩn sâu trong rừng cho đến các di tích lịch sử vang danh, Kbang hứa hẹn mang đến những trải nghiệm không thể nào quên.
+                </p>
+
+                <!-- Filter Category Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8" id="attractions-filter">
+                    <button class="filter-btn active bg-emeraldDeep text-white px-5 py-2 rounded-full text-sm font-semibold transition" data-filter="all">Tất Cả</button>
+                    <button class="filter-btn bg-slate-100 hover:bg-emerald-100 text-slate-700 px-5 py-2 rounded-full text-sm font-semibold transition" data-filter="nature">Nhiên Thiên & Thác</button>
+                    <button class="filter-btn bg-slate-100 hover:bg-emerald-100 text-slate-700 px-5 py-2 rounded-full text-sm font-semibold transition" data-filter="history">Lịch Sử & Văn Hóa</button>
+                    <button class="filter-btn bg-slate-100 hover:bg-emerald-100 text-slate-700 px-5 py-2 rounded-full text-sm font-semibold transition" data-filter="reserve">Khu Bảo Tồn</button>
+                </div>
+            </div>
+
+            <!-- Attractions Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="attractions-grid">
+                
+                <!-- Card 1: Thác K50 -->
+                <div class="attraction-card nature bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80" alt="Thác K50 Hang Én" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-ochreGold text-white text-xs font-bold px-3 py-1 rounded-full shadow">Hot Spot</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-emerald-600 uppercase mb-1"><i class="fa-solid fa-water"></i> Tuyệt tác đại ngàn</div>
+                            <h3 class="text-xl font-bold text-emeraldDeep mb-2">Thác K50 (Thác Hang Én)</h3>
+                            <p class="text-slate-600 text-sm line-clamp-3 mb-4">
+                                Được ví như "dải lụa mây" giữa lòng bảo tồn Kon Chư Răng, Thác K50 có độ cao hơn 50m tung bọt trắng xóa huyền ảo, là tọa độ trekking mơ ước của mọi phượt thủ.
+                            </p>
+                        </div>
+                        <button onclick="openModal('k50')" class="w-full py-2.5 bg-emerald-100 hover:bg-emeraldDeep hover:text-white text-emeraldDeep font-semibold rounded-xl text-sm transition">
+                            Xem Chi Tiết & Hướng Dẫn <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Kon Ka Kinh -->
+                <div class="attraction-card reserve nature bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=800&q=80" alt="Vườn quốc gia Kon Ka Kinh" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-emeraldDeep text-white text-xs font-bold px-3 py-1 rounded-full shadow">Di sản ASEAN</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-emerald-600 uppercase mb-1"><i class="fa-solid fa-tree"></i> Đa dạng sinh học</div>
+                            <h3 class="text-xl font-bold text-emeraldDeep mb-2">VQG Kon Ka Kinh</h3>
+                            <p class="text-slate-600 text-sm line-clamp-3 mb-4">
+                                Vườn di sản ASEAN với diện tích hơn 42.000 ha, nơi lưu giữ loài Chà vá chân xám quý hiếm và thảm thực vật đa dạng đỉnh cao của Hoàng Liên Sơn phía Nam.
+                            </p>
+                        </div>
+                        <button onclick="openModal('konkaking')" class="w-full py-2.5 bg-emerald-100 hover:bg-emeraldDeep hover:text-white text-emeraldDeep font-semibold rounded-xl text-sm transition">
+                            Xem Chi Tiết & Hướng Dẫn <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Tây Sơn Thượng Đạo -->
+                <div class="attraction-card history bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80" alt="Di tích Tây Sơn Thượng Đạo" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-earthRed text-white text-xs font-bold px-3 py-1 rounded-full shadow">Di Tích Quốc Gia</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-ochreGold uppercase mb-1"><i class="fa-solid fa-landmark"></i> Căn cứ lịch sử</div>
+                            <h3 class="text-xl font-bold text-emeraldDeep mb-2">Tây Sơn Thượng Đạo</h3>
+                            <p class="text-slate-600 text-sm line-clamp-3 mb-4">
+                                Căn cứ đầu tiên của nghĩa quân Tây Sơn gắn liền với Điện Dọc, Vườn Cam, Kho Lương... Nơi lưu giữ ký ức hào hùng của người anh hùng áo vải Quang Trung.
+                            </p>
+                        </div>
+                        <button onclick="openModal('tayson')" class="w-full py-2.5 bg-emerald-100 hover:bg-emeraldDeep hover:text-white text-emeraldDeep font-semibold rounded-xl text-sm transition">
+                            Xem Chi Tiết & Hướng Dẫn <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4: Làng Stơr anh hùng Núp -->
+                <div class="attraction-card history bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1528164344705-475426879e0d?auto=format&fit=crop&w=800&q=80" alt="Làng Stơr Quê Hương Anh Hùng Núp" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-ochreGold uppercase mb-1"><i class="fa-solid fa-campground"></i> Quê hương anh hùng</div>
+                            <h3 class="text-xl font-bold text-emeraldDeep mb-2">Làng Kháng Chiến Stơr</h3>
+                            <p class="text-slate-600 text-sm line-clamp-3 mb-4">
+                                Làng Stơr (xã Tơ Tung) - quê hương Anh hùng Núp. Nơi tìm hiểu lịch sử kháng chiến kiên cường qua Nhà lưu niệm, trải nghiệm cuộc sống người Bà Na.
+                            </p>
+                        </div>
+                        <button onclick="openModal('stor')" class="w-full py-2.5 bg-emerald-100 hover:bg-emeraldDeep hover:text-white text-emeraldDeep font-semibold rounded-xl text-sm transition">
+                            Xem Chi Tiết & Hướng Dẫn <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5: Thác Hang Cơm & Thác Ba Tầng -->
+                <div class="attraction-card nature bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80" alt="Thác Hang Cơm" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-emerald-600 uppercase mb-1"><i class="fa-solid fa-water"></i> Thác nước hoang sơ</div>
+                            <h3 class="text-xl font-bold text-emeraldDeep mb-2">Thác Hang Cơm & Thác 3 Tầng</h3>
+                            <p class="text-slate-600 text-sm line-clamp-3 mb-4">
+                                Các ngọn thác hoang sơ tuyệt đẹp nằm rải rác trong rừng Kbang, thích hợp cho chuyến picnic dã ngoại, tắm mát và ngắm cảnh thiên nhiên thơ mộng.
+                            </p>
+                        </div>
+                        <button onclick="openModal('waterfalls')" class="w-full py-2.5 bg-emerald-100 hover:bg-emeraldDeep hover:text-white text-emeraldDeep font-semibold rounded-xl text-sm transition">
+                            Xem Chi Tiết & Hướng Dẫn <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6: BKB Kon Chư Răng -->
+                <div class="attraction-card reserve nature bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="KBT Tự Nhiên Kon Chư Răng" class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-emerald-600 uppercase mb-1"><i class="fa-solid fa-leaf"></i> Rừng nguyên sinh</div>
+                            <h3 class="text-xl font-bold text-emeraldDeep mb-2">KBT Thiên Nhiên Kon Chư Răng</h3>
+                            <p class="text-slate-600 text-sm line-clamp-3 mb-4">
+                                Khu bảo tồn thiên nhiên chứa đựng quần thể hàng chục ngọn thác hoang sơ, rừng chuyển tiếp giữa Duyên hải Mộc Miền và cao nguyên Gia Lai.
+                            </p>
+                        </div>
+                        <button onclick="openModal('konchurang')" class="w-full py-2.5 bg-emerald-100 hover:bg-emeraldDeep hover:text-white text-emeraldDeep font-semibold rounded-xl text-sm transition">
+                            Xem Chi Tiết & Hướng Dẫn <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Culinary Specialties Section -->
+    <section id="cuisine" class="py-20 bg-emerald-900 text-white relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 opacity-10 text-emerald-300">
+            <i class="fa-solid fa-utensils text-[300px]"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-400 font-bold text-sm tracking-widest uppercase"><i class="fa-solid fa-bowl-food mr-1"></i> Hương Vị Núi Rừng</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                    Đặc Sản Ẩm Thực Kbang Unique
+                </h2>
+                <p class="text-emerald-200 mt-3">
+                    Khám phá tinh hoa ẩm thực Tây Nguyên đậm đà, quà tặng ngọt ngào từ đại ngàn bao la ban tặng cho Kbang.
+                </p>
+            </div>
+
+            <!-- Cuisine Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Specialty 1 -->
+                <div class="bg-emerald-800/80 rounded-2xl p-6 border border-emerald-700 hover:border-amber-400 transition duration-300 shadow-xl flex flex-col">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-jar"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Mật Ong Rừng & Măng Nứa</h3>
+                            <span class="text-xs text-amber-300 font-medium">Sản vật đại ngàn</span>
+                        </div>
+                    </div>
+                    <p class="text-emerald-100 text-sm leading-relaxed mb-4 flex-1">
+                        Mật ong rừng nguyên chất Kbang nổi tiếng vì thơm ngọt tự nhiên, khai thác từ rừng nguyên sinh. Kết hợp cùng măng nứa khô ngọt đậm, sấy thủ công hoàn toàn.
+                    </p>
+                    <div class="pt-3 border-t border-emerald-700/60 text-xs text-amber-300 font-semibold">
+                        <i class="fa-solid fa-gift mr-1"></i> Quà lưu niệm phổ biến nhất
+                    </div>
+                </div>
+
+                <!-- Specialty 2 -->
+                <div class="bg-emerald-800/80 rounded-2xl p-6 border border-emerald-700 hover:border-amber-400 transition duration-300 shadow-xl flex flex-col">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-drumstick-bite"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Gà Nướng & Cơm Lam</h3>
+                            <span class="text-xs text-amber-300 font-medium">Ẩm thực truyền thống</span>
+                        </div>
+                    </div>
+                    <p class="text-emerald-100 text-sm leading-relaxed mb-4 flex-1">
+                        Gà thả đồi ướp lá é nướng trên than hồng thơm lừng, ăn kèm cơm lam dẻo thơm nướng trong ống nứa non. Món ăn làm ấm lòng mọi du khách đêm Tây Nguyên.
+                    </p>
+                    <div class="pt-3 border-t border-emerald-700/60 text-xs text-amber-300 font-semibold">
+                        <i class="fa-solid fa-fire mr-1"></i> Thưởng thức quanh lửa hồng
+                    </div>
+                </div>
+
+                <!-- Specialty 3 -->
+                <div class="bg-emerald-800/80 rounded-2xl p-6 border border-emerald-700 hover:border-amber-400 transition duration-300 shadow-xl flex flex-col">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-wine-glass"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Rượu Cần Tây Nguyên</h3>
+                            <span class="text-xs text-amber-300 font-medium">Nét đẹp văn hóa</span>
+                        </div>
+                    </div>
+                    <p class="text-emerald-100 text-sm leading-relaxed mb-4 flex-1">
+                        Rượu ủ từ nếp cẩm, mầm củ rừng và các loại lá thuốc dân tộc. Rượu cần mang vị ngọt cay nồng say, kết nối tình thân trong các buổi sinh hoạt nhà Rông.
+                    </p>
+                    <div class="pt-3 border-t border-emerald-700/60 text-xs text-amber-300 font-semibold">
+                        <i class="fa-solid fa-users mr-1"></i> Biểu tượng hiếu khách
+                    </div>
+                </div>
+
+                <!-- Specialty 4 -->
+                <div class="bg-emerald-800/80 rounded-2xl p-6 border border-emerald-700 hover:border-amber-400 transition duration-300 shadow-xl flex flex-col">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-mortar-pestle"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Bò Một Nắng & Muối Kiến Vàng</h3>
+                            <span class="text-xs text-amber-300 font-medium">Hương vị độc lạ</span>
+                        </div>
+                    </div>
+                    <p class="text-emerald-100 text-sm leading-relaxed mb-4 flex-1">
+                        Thịt bò cỏ chăn thả núi rừng nướng xém cạnh, chấm cùng muối kiến vàng có vị chua thanh dịu béo ngậy đặc trưng không nơi nào sánh bằng.
+                    </p>
+                    <div class="pt-3 border-t border-emerald-700/60 text-xs text-amber-300 font-semibold">
+                        <i class="fa-solid fa-star mr-1"></i> Món ngon trứ danh
+                    </div>
+                </div>
+
+                <!-- Specialty 5 -->
+                <div class="bg-emerald-800/80 rounded-2xl p-6 border border-emerald-700 hover:border-amber-400 transition duration-300 shadow-xl flex flex-col">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Sâm Dây & Hạt Mắc Ca Kbang</h3>
+                            <span class="text-xs text-amber-300 font-medium">Nông sản cao cấp</span>
+                        </div>
+                    </div>
+                    <p class="text-emerald-100 text-sm leading-relaxed mb-4 flex-1">
+                        Sâm dây (Đảng sâm) và Mắc ca trồng tại đất Kbang thổ nhưỡng dồi dào dinh dưỡng, hạt béo ngậy bồi bổ sức khỏe tuyệt vời làm quà biếu cao cấp.
+                    </p>
+                    <div class="pt-3 border-t border-emerald-700/60 text-xs text-amber-300 font-semibold">
+                        <i class="fa-solid fa-heart-pulse mr-1"></i> Bổ dưỡng cho sức khỏe
+                    </div>
+                </div>
+
+                <!-- Specialty 6 -->
+                <div class="bg-emerald-800/80 rounded-2xl p-6 border border-emerald-700 hover:border-amber-400 transition duration-300 shadow-xl flex flex-col">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Cà Phê Đậm Đàm Kbang</h3>
+                            <span class="text-xs text-amber-300 font-medium">Đặc sản cao nguyên</span>
+                        </div>
+                    </div>
+                    <p class="text-emerald-100 text-sm leading-relaxed mb-4 flex-1">
+                        Những hạt cà phê Robusta, Arabica chín đỏ mọng thu hoạch từ vườn cà phê độ cao lý tưởng, mang hương vị đậm đà quyến rũ nồng nàn.
+                    </p>
+                    <div class="pt-3 border-t border-emerald-700/60 text-xs text-amber-300 font-semibold">
+                        <i class="fa-solid fa-coffee mr-1"></i> Hương vị nồng nàn
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="py-20 bg-amber-50/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Cultural Images Carousel / Collage -->
+                <div class="space-y-4">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Văn hóa cồng chiêng Tây Nguyên" class="w-full h-80 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <span class="bg-ochreGold text-xs font-bold px-2.5 py-1 rounded">Di Sản UNESCO</span>
+                                <h3 class="text-xl font-bold mt-2">Không Gian Văn Hóa Cồng Chiêng</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-amber-200">
+                            <i class="fa-solid fa-house-chimney text-3xl text-ochreGold mb-2"></i>
+                            <h4 class="font-bold text-emeraldDeep text-base">Kiến Trúc Nhà Rông</h4>
+                            <p class="text-xs text-slate-500 mt-1">Trái tim sinh hoạt cộng đồng mang biểu tượng kiêu hãnh của buôn làng Bà Na.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-amber-200">
+                            <i class="fa-solid fa-shirt text-3xl text-ochreGold mb-2"></i>
+                            <h4 class="font-bold text-emeraldDeep text-base">Dệt Thổ Cẩm</h4>
+                            <p class="text-xs text-slate-500 mt-1">Nghệ thuật dệt thủ công tinh xảo với hoa văn mang hơi thở tự nhiên.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cultural Text Overview -->
+                <div>
+                    <span class="text-ochreGold font-bold text-sm tracking-widest uppercase">Bản Sắc Tộc Người Bà Na & Gia Rai</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-emeraldDeep mt-2 mb-6">
+                        Đặc Sắc Văn Hóa Dân Tộc Tại Kbang
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Kbang là địa bàn sinh sống lâu đời của đồng bào dân tộc <strong>Bà Na</strong>. Du khách đến Kbang sẽ được đắm chìm trong không gian văn hóa cồng chiêng linh thiêng, ngắm nhìn vẻ đẹp uy nghi của những ngôi Nhà Rông cao vút giữa đại ngàn.
+                    </p>
+
+                    <!-- Features list -->
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 text-ochreGold flex items-center justify-center shrink-0 mt-1 font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Lễ Hội Mừng Lúa Mới & Lễ Bỏ Mả</h4>
+                                <p class="text-sm text-slate-600">Những lễ hội tâm linh lớn nhất năm, nơi ghi dấu bản sắc cộng đồng, nghi thức cúng tế truyền thống cùng điệu xoang nhịp nhàng.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 text-ochreGold flex items-center justify-center shrink-0 mt-1 font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Nghề Đan Đẽo & Chế Tạo Tạc Tượng</h4>
+                                <p class="text-sm text-slate-600">Các nghệ nhân tài hoa thổi hồn vào gỗ và tre nứa, tạo nên tượng nhà mả, gùi tre, dụng cụ sinh hoạt độc đáo.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 text-ochreGold flex items-center justify-center shrink-0 mt-1 font-bold">3</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Tinh Thần Quật Khởi Anh Hùng Núp</h4>
+                                <p class="text-sm text-slate-600">Bài học lịch sử sống động về tinh thần kiên cường đánh giặc bảo vệ buôn làng bằng nỏ thần và bẫy đá.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary & Travel Guide Section -->
+    <section id="itinerary" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-ochreGold font-bold text-sm tracking-widest uppercase"><i class="fa-solid fa-route mr-1"></i> Cẩm Nang Du Lịch</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emeraldDeep mt-2">
+                    Gợi Ý Lịch Trình Khám Phá Kbang 2 Ngày 1 Đêm
+                </h2>
+                <p class="text-slate-600 mt-3">
+                    Lên kế hoạch hoàn hảo để tận hưởng trọn vẹn nét đẹp thiên nhiên & văn hóa của đất rừng Kbang.
+                </p>
+            </div>
+
+            <!-- Timeline Itinerary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                
+                <!-- Day 1 -->
+                <div class="bg-slate-50 border border-emerald-200 rounded-3xl p-8 relative shadow-lg">
+                    <div class="absolute -top-4 left-8 bg-emeraldDeep text-white px-4 py-1 rounded-full font-bold text-sm shadow">
+                        Ngày 01: Đại Ngàn & Huyền Thoại
+                    </div>
+                    <div class="space-y-6 mt-4">
+                        <div class="flex space-x-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">07:00 - 09:00</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Di chuyển từ Pleiku đi Kbang:</strong> Ngắm nhìn cung đường xuyên qua những vạt rừng cao su, đồi cà phê bạt ngàn.
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 border-t border-slate-200 pt-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">09:30 - 12:00</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Tham quan Khu Di Tích Tây Sơn Thượng Đạo & Làng Stơr:</strong> Tìm hiểu di tích lịch sử Vườn Cam, Điện Dọc và thắp hương tại Nhà lưu niệm Anh hùng Núp.
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 border-t border-slate-200 pt-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">12:30 - 14:00</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Thưởng thức ẩm thực trưa:</strong> Cơm lam, gà nướng, bò một nắng chấm muối kiến vàng đậm vị tại thị trấn Kbang.
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 border-t border-slate-200 pt-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">14:30 - 18:00</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Khám phá Thác Hang Cơm / Thác 3 Tầng:</strong> Tắm mát, chụp ảnh check-in và tận hưởng không khí trong lành của suối rừng.
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 border-t border-slate-200 pt-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">19:00 - 21:30</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Đêm giao lưu Cồng Chiêng:</strong> Đốt lửa trại, uống rượu cần và hòa vào điệu múa Xoang cùng đồng bào Bà Na tại buôn làng.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="bg-slate-50 border border-amber-200 rounded-3xl p-8 relative shadow-lg">
+                    <div class="absolute -top-4 left-8 bg-ochreGold text-white px-4 py-1 rounded-full font-bold text-sm shadow">
+                        Ngày 02: Chinh Phục Thác K50
+                    </div>
+                    <div class="space-y-6 mt-4">
+                        <div class="flex space-x-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">06:00 - 08:00</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Ăn sáng & Di chuyển tới KBT Kon Chư Răng:</strong> Chuẩn bị trang phục trekking gọn nhẹ, gậy leo núi, kem chống muỗi.
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 border-t border-slate-200 pt-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">08:30 - 12:00</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Trekking chinh phục Thác K50 (Thác Hang Én):</strong> Đi xuyên thảm thực vật rừng nguyên sinh cổ thụ, chiêm ngưỡng ngọn thác hùng vĩ tột cùng.
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 border-t border-slate-200 pt-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">12:30 - 14:00</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Nghỉ ngơi Picnic chân thác:</strong> Ăn trưa nhẹ giữa thiên nhiên thơ mộng và ngắm đàn chim én chao lượn.
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 border-t border-slate-200 pt-4">
+                            <div class="text-ochreGold font-bold text-sm w-20 shrink-0">14:30 - 17:00</div>
+                            <div class="text-slate-700 text-sm">
+                                <strong>Trở về thị trấn Kbang & Mua quà đặc sản:</strong> Ghé chợ/nông trại chọn mua mật ong rừng, măng khô, mắc ca, sâm dây.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Useful Travel Tips -->
+            <div class="bg-emeraldDeep text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold text-amber-400"><i class="fa-solid fa-lightbulb mr-2"></i> Mẹo Hay Cho Chuyến Đi Kbang</h3>
+                    <p class="text-sm text-emerald-100">Thời điểm đẹp nhất đi du lịch Kbang là từ <strong>tháng 11 đến tháng 4 năm sau</strong> (mùa khô, thác nước trong xanh, bọt tung tuyệt đẹp và dễ di chuyển).</p>
+                </div>
+                <a href="#hero" class="shrink-0 bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-xl shadow transition text-sm">
+                    Lên Kế Hoạch Ngay
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-forestAccent text-slate-300 pt-16 pb-8 border-t border-emerald-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-ochreGold flex items-center justify-center font-bold text-white">K</div>
+                        <span class="text-xl font-extrabold text-white">KBANG GIA LAI</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Cổng thông tin du lịch giới thiệu vẻ đẹp thiên nhiên, con người và văn hóa huyện Kbang, tỉnh Gia Lai.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Khám Phá</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#attractions" class="hover:text-white transition">Thác K50 Hang Én</a></li>
+                        <li><a href="#attractions" class="hover:text-white transition">VQG Kon Ka Kinh</a></li>
+                        <li><a href="#attractions" class="hover:text-white transition">Tây Sơn Thượng Đạo</a></li>
+                        <li><a href="#attractions" class="hover:text-white transition">Làng Kháng Chiến Stơr</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Đặc Sản Quà Tặng</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#cuisine" class="hover:text-white transition">Mật Ong Rừng Nguyên Chất</a></li>
+                        <li><a href="#cuisine" class="hover:text-white transition">Măng Nứa Kbang</a></li>
+                        <li><a href="#cuisine" class="hover:text-white transition">Bò Một Nắng Muối Kiến Vàng</a></li>
+                        <li><a href="#cuisine" class="hover:text-white transition">Sâm Dây & Mắc Ca</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4">Thông Tin Hỗ Trợ</h4>
+                    <p class="text-xs text-slate-400 mb-2"><i class="fa-solid fa-location-dot mr-2"></i> Huyện Kbang, Tỉnh Gia Lai, Việt Nam</p>
+                    <p class="text-xs text-slate-400 mb-2"><i class="fa-solid fa-phone mr-2"></i> Hotline Du Lịch: 0269.xxx.xxxx</p>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-emerald-900 flex items-center justify-center text-slate-300 hover:bg-ochreGold hover:text-white transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-emerald-900 flex items-center justify-center text-slate-300 hover:bg-ochreGold hover:text-white transition" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-emerald-900 flex items-center justify-center text-slate-300 hover:bg-ochreGold hover:text-white transition" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-emerald-900/60 pt-6 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Kbang Gia Lai Tourism. Trang web giới thiệu toàn diện vẻ đẹp Cổng Trời Kbang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Detail Modal -->
+    <div id="modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl border border-emerald-100">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition" aria-label="Đóng modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Modal Content Holder -->
+            <div id="modal-content">
+                <!-- Dynamically filled by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Details Data
+        const modalData = {
+            k50: {
+                title: "Thác K50 (Thác Hang Én)",
+                tag: "Tuyệt Tác Đại Ngàn",
+                image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1000&q=80",
+                desc: "Thác K50 nằm sâu trong Khu bảo tồn thiên nhiên Kon Chư Răng, giáp ranh giữa Gia Lai và Bình Định. Với chiều cao hơn 50m và chiều rộng hàng chục mét, dòng nước đổ xuống tung bọt trắng xóa tựa như dải lụa tiên cảnh.",
+                details: [
+                    "<strong>Vị trí:</strong> Xã Sơn Lang, huyện Kbang, tỉnh Gia Lai.",
+                    "<strong>Thời điểm đẹp nhất:</strong> Tháng 1 đến tháng 4 hàng năm (mùa khô, đường đi thuận lợi, dòng nước xanh ngọc).",
+                    "<strong>Hoạt động:</strong> Trekking băng rừng, cắm trại qua đêm, ngắm chim én bay về tổ, chụp ảnh sống ảo."
+                ]
+            },
+            konkaking: {
+                title: "Vườn Quốc Gia Kon Ka Kinh",
+                tag: "Di Sản Sinh Thái ASEAN",
+                image: "https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=1000&q=80",
+                desc: "Được công nhận là Vườn di sản ASEAN từ năm 2003, Kon Ka Kinh sở hữu hệ sinh thái rừng hỗn giao lá rộng và lá kim độc nhất vô nhị.",
+                details: [
+                    "<strong>Diện tích:</strong> Hơn 42.000 ha bảo tồn nghiêm ngặt.",
+                    "<strong>Động thực vật:</strong> Nơi cư trú của loài Chà vá chân xám quý hiếm cùng hàng trăm loài lan rừng độc đáo.",
+                    "<strong>Trải nghiệm:</strong> Trèo đỉnh Kon Ka Kinh cao 1.748m, nghiên cứu đa dạng sinh học."
+                ]
+            },
+            tayson: {
+                title: "Quần Thể Di Tích Tây Sơn Thượng Đạo",
+                tag: "Lịch Sử Vang Danh",
+                image: "https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=1000&q=80",
+                desc: "Nơi ba anh em nhà Tây Sơn (Nhuyễn Nhạc, Nguyễn Huệ, Nguyễn Lữ) dấy binh khởi nghĩa. Quần thể di tích gồm nhiều điểm căn cứ chiến lược như Điện Dọc, Vườn Cam, Kho Lương, Cây Kơ-nia cổ thụ...",
+                details: [
+                    "<strong>Ý nghĩa:</strong> Di tích quốc gia đặc biệt ghi dấu bước đầu dựng nghiệp của nghĩa quân Tây Sơn.",
+                    "<strong>Điểm tham quan:</strong> An Khê Trường, An Khê Đình, Vườn Cam Tây Sơn."
+                ]
+            },
+            stor: {
+                title: "Làng Kháng Chiến Stơr - Quê Hương Anh Hùng Núp",
+                tag: "Văn Hóa & Lịch Sử",
+                image: "https://images.unsplash.com/photo-1528164344705-475426879e0d?auto=format&fit=crop&w=1000&q=80",
+                desc: "Làng Stơr là biểu tượng kiên cường của đồng bào Tây Nguyên trong hai cuộc kháng chiến. Nơi đây gắn liền với tên tuổi Anh hùng Núp - người con ưu tú của làng.",
+                details: [
+                    "<strong>Điểm nổi bật:</strong> Nhà lưu niệm Anh hùng Núp trưng bày các hiện vật chiến đấu, Nhà Rông truyền thống.",
+                    "<strong>Giao lưu:</strong> Trải nghiệm dệt thổ cẩm, nghe già làng kể chuyện lịch sử và thưởng thức rượu cần."
+                ]
+            },
+            waterfalls: {
+                title: "Thác Hang Cơm & Thác Ba Tầng",
+                tag: "Vẻ Đẹp Hoang Sơ",
+                image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1000&q=80",
+                desc: "Thác Hang Cơm và Thác 3 Tầng là những ngọn thác thơ mộng ẩn mình trong tán rừng Kbang, có các vòm đá tự nhiên thích hợp làm nơi trú ẩn và nghỉ ngơi dã ngoại.",
+                details: [
+                    "<strong>Trải nghiệm:</strong> Tắm suối mát lạnh, tổ chức BBQ cắm trại trong ngày.",
+                    "<strong>Lưu ý:</strong> Giữ gìn vệ sinh môi trường, không xả rác."
+                ]
+            },
+            konchurang: {
+                title: "Khu Bảo Tồn Thiên Nhiên Kon Chư Răng",
+                tag: "Rừng Nguyên Sinh Trái Tim Kbang",
+                image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1000&q=80",
+                desc: "Khu bảo tồn thiên nhiên Kon Chư Răng nằm trên đại ngàn Kbang có hệ thống sông suối và hơn 12 ngọn thác tuyệt đẹp. Nơi lý tưởng nhất cho hoạt động khám phá sinh thái.",
+                details: [
+                    "<strong>Đặc điểm:</strong> Tỷ lệ che phủ rừng đạt trên 98%.",
+                    "<strong>Phù hợp:</strong> Các tour trekking chuyên nghiệp, khám phá thiên nhiên."
+                ]
+            }
+        };
+
+        // Modal Open Function
+        function openModal(key) {
+            const data = modalData[key];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modal-content');
+            let detailsHtml = data.details.map(item => `<li class="text-sm text-slate-600">${item}</li>`).join('');
+
+            modalContent.innerHTML = `
+                <span class="inline-block bg-ochreGold text-white text-xs font-bold px-3 py-1 rounded-full mb-3">${data.tag}</span>
+                <h3 class="text-2xl font-bold text-emeraldDeep mb-4">${data.title}</h3>
+                <img src="${data.image}" alt="${data.title}" class="w-full h-64 object-cover rounded-2xl mb-4 shadow">
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">${data.desc}</p>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-4">
+                    <h4 class="font-bold text-emeraldDeep text-sm mb-2">Thông tin cần biết:</h4>
+                    <ul class="space-y-2 list-disc list-inside">
+                        ${detailsHtml}
+                    </ul>
+                </div>
+            `;
+
+            document.getElementById('modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Modal Close Function
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Mobile Menu Toggle logic
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Filtering functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const attractionCards = document.querySelectorAll('.attraction-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-emeraldDeep', 'text-white');
+                    b.classList.add('bg-slate-100', 'text-slate-700');
+                });
+                btn.classList.add('active', 'bg-emeraldDeep', 'text-white');
+                btn.classList.remove('bg-slate-100', 'text-slate-700');
+
+                const filter = btn.getAttribute('data-filter');
+
+                attractionCards.forEach(card => {
+                    if (filter === 'all' || card.classList.contains(filter)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Close modal when clicking outside content box
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('modal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
